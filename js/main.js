@@ -1,3 +1,3 @@
-import Theme from "./modules/theme.js";
+import { toggleTheme } from "./modules/theme.js";
 
-const theme = new Theme();
+toggleTheme()

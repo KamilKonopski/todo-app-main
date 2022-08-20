@@ -1,8 +1,8 @@
 const themeButton = document.getElementById('theme-button');
 
-class Theme {
-    constructor() {
-    }
-}
-
-export default Theme;
+export const toggleTheme = () => {
+    themeButton.addEventListener('click', () => {
+        themeButton.classList.toggle('dark');
+        themeButton.classList.toggle('light');
+    });
+};

@@ -18,11 +18,18 @@
 	}
 
 	& button {
-		background: url("../images/icon-sun.svg") no-repeat center;
 		border: none;
 		cursor: pointer;
 		height: 25px;
 		margin-right: 20px;
 		width: 25px;
+	}
+
+	& button.dark {
+		background: url("../images/icon-sun.svg") no-repeat center;
+	}
+
+	& button.light {
+		background: url("../images/icon-moon.svg") no-repeat center;
 	}
 }
