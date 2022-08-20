@@ -5,7 +5,11 @@
 }
 
 body {
+	align-items: center;
 	background-color: $veryDarkBlue;
+	display: flex;
+	flex-direction: column;
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 18px;
+	height: 100vh;
 }
