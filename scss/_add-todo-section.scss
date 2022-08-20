@@ -1,5 +1,4 @@
 .add-todo {
-	background-color: $veryDarkDesaturatedBlue;
 	border-radius: 5px;
 	display: flex;
 	margin: 0 auto;
@@ -19,8 +18,8 @@
 	& input {
 		background-color: transparent;
 		border: none;
-		caret-color: $brightBlue;
 		color: $darkLightGrayishBlue;
+		caret-color: $brightBlue;
 		font-family: "Josefin Sans", sans-serif;
 		font-size: 13px;
 		width: 90%;
