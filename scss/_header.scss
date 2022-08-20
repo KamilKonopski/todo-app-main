@@ -1,12 +1,27 @@
 .header {
 	align-items: baseline;
-	background: url("../images/bg-mobile-dark.jpg") no-repeat;
 	display: flex;
 	flex-direction: row;
 	height: 30vh;
 	justify-content: space-between;
 	padding-top: 50px;
 	width: 100%;
+
+	&.dark {
+		background: url("../images/bg-mobile-dark.jpg") no-repeat;
+
+		@media screen and (min-width: 1024px) {
+			background: url("../images/bg-desktop-dark.jpg") no-repeat;
+		}
+	}
+
+	&.light {
+		background: url("../images/bg-mobile-light.jpg") no-repeat;
+
+		@media screen and (min-width: 1024px) {
+			background: url("../images/bg-desktop-light.jpg") no-repeat;
+		}
+	}
 
 	& h1 {
 		color: #fff;

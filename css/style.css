@@ -24,13 +24,28 @@ body.light {
 
 .header {
   align-items: baseline;
-  background: url("../images/bg-mobile-dark.jpg") no-repeat;
   display: flex;
   flex-direction: row;
   height: 30vh;
   justify-content: space-between;
   padding-top: 50px;
   width: 100%;
+}
+.header.dark {
+  background: url("../images/bg-mobile-dark.jpg") no-repeat;
+}
+@media screen and (min-width: 1024px) {
+  .header.dark {
+    background: url("../images/bg-desktop-dark.jpg") no-repeat;
+  }
+}
+.header.light {
+  background: url("../images/bg-mobile-light.jpg") no-repeat;
+}
+@media screen and (min-width: 1024px) {
+  .header.light {
+    background: url("../images/bg-desktop-light.jpg") no-repeat;
+  }
 }
 .header h1 {
   color: #fff;
@@ -55,10 +70,10 @@ body.light {
 }
 
 .todo-app {
-  left: 0%;
+  left: 5%;
   position: absolute;
   top: 18%;
-  width: 100%;
+  width: 90%;
 }
 
 .dark {
@@ -76,7 +91,7 @@ body.light {
   display: flex;
   margin: 0 auto;
   padding: 15px;
-  width: 90%;
+  width: 100%;
 }
 .add-todo span {
   background-color: transparent;
