@@ -138,5 +138,6 @@ body.light {
   background-color: #fff;
 }
 .todo-list .simple-todo {
+  border-bottom: 1px solid #777a92;
   display: flex;
 }/*# sourceMappingURL=style.css.map */
