@@ -140,4 +140,29 @@ body.light {
 .todo-list .simple-todo {
   border-bottom: 1px solid #777a92;
   display: flex;
+}
+
+.mobile-filters-buttons {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 15px 0;
+}
+.mobile-filters-buttons.dark {
+  background-color: #25273c;
+}
+.mobile-filters-buttons.light {
+  background-color: #fff;
+}
+.mobile-filters-buttons button {
+  background-color: transparent;
+  border: none;
+  color: #4d5066;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 20px;
+}
+.mobile-filters-buttons button.active {
+  color: #3a7bfd;
 }/*# sourceMappingURL=style.css.map */
