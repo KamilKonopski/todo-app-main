@@ -76,22 +76,18 @@ body.light {
   width: 90%;
 }
 
-.dark {
-  background-color: #25273c;
-  color: #cacde8;
-}
-
-.light {
-  background-color: #fff;
-  color: #484b6a;
-}
-
 .add-todo {
   border-radius: 5px;
   display: flex;
   margin: 0 auto;
   padding: 15px;
   width: 100%;
+}
+.add-todo.dark {
+  background-color: #25273c;
+}
+.add-todo.light {
+  background-color: #fff;
 }
 .add-todo span {
   background-color: transparent;
@@ -105,11 +101,16 @@ body.light {
 .add-todo input {
   background-color: transparent;
   border: none;
-  color: #cacde8;
   caret-color: #3a7bfd;
   font-family: "Josefin Sans", sans-serif;
   font-size: 13px;
   width: 90%;
+}
+.add-todo input.dark {
+  color: #cacde8;
+}
+.add-todo input.light {
+  color: #484b6a;
 }
 .add-todo input::-moz-placeholder {
   color: #777a92;

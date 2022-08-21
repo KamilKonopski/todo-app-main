@@ -1,17 +1,18 @@
 const themeButton = document.getElementById('theme-button');
-const bodyTheme = document.body;
-const todoAppTheme = document.querySelector('.todo-app');
-const headerTheme = document.querySelector('.header');
+const darkTheme = document.getElementsByClassName('dark');
+const lightTheme = document.getElementsByClassName('light');
+console.log(darkTheme);
 
 export const toggleTheme = () => {
     themeButton.addEventListener('click', () => {
-        themeButton.classList.toggle('dark');
-        themeButton.classList.toggle('light');
-        bodyTheme.classList.toggle('dark');
-        bodyTheme.classList.toggle('light');
-        todoAppTheme.classList.toggle('dark');
-        todoAppTheme.classList.toggle('light');
-        headerTheme.classList.toggle('dark');
-        headerTheme.classList.toggle('light');
+        if(themeButton.classList.contains('dark')) {
+            for(let i = 0; i = darkTheme.length; i++) {
+                darkTheme[0].className = darkTheme[0].className.replace('dark', 'light');
+            };
+        } else if(themeButton.classList.contains('light')) {
+            for(let i = 0; i = lightTheme.length; i++) {
+                lightTheme[0].className = lightTheme[0].className.replace('light', 'dark');
+            }; 
+        };
     });
 };

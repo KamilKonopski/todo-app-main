@@ -5,6 +5,14 @@
 	padding: 15px;
 	width: 100%;
 
+	&.dark {
+		background-color: $veryDarkDesaturatedBlue;
+	}
+
+	&.light {
+		background-color: #fff;
+	}
+
 	& span {
 		background-color: transparent;
 		border: 1px solid $darkVeryDarkGrayishBlue;
@@ -18,11 +26,18 @@
 	& input {
 		background-color: transparent;
 		border: none;
-		color: $darkLightGrayishBlue;
 		caret-color: $brightBlue;
 		font-family: "Josefin Sans", sans-serif;
 		font-size: 13px;
 		width: 90%;
+
+		&.dark {
+			color: $darkLightGrayishBlue;
+		}
+
+		&.light {
+			color: $lightVeryDarkGrayishBlue;
+		}
 
 		&::placeholder {
 			color: $darkDarkGrayishBlue;
