@@ -13,8 +13,36 @@
 	}
 
 	& .simple-todo {
+		align-items: center;
 		border-bottom: 1px solid $darkDarkGrayishBlue;
 		display: flex;
+		// justify-content: space-between;
+		padding: 15px;
+
+		& .done-todo {
+			background-color: transparent;
+			border: 1px solid #4d5066;
+			border-radius: 50%;
+			cursor: pointer;
+			display: block;
+			height: 20px;
+			margin-right: 10px;
+			width: 20px;
+		}
+
+		& .text-todo {
+			color: $darkLightGrayishBlue;
+			font-size: 11px;
+			margin-right: 60px;
+		}
+
+		& .delete-todo {
+			background: url("../images/icon-cross.svg") no-repeat center;
+			border: none;
+			cursor: pointer;
+			height: 12px;
+			width: 12px;
+		}
 	}
 }
 
