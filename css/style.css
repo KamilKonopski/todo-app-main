@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -76,20 +76,20 @@ body.light {
   width: 90%;
 }
 
-.add-todo {
+.todo-add {
   border-radius: 5px;
   display: flex;
   margin: 0 auto;
   padding: 15px;
   width: 100%;
 }
-.add-todo.dark {
+.todo-add.dark {
   background-color: #25273c;
 }
-.add-todo.light {
+.todo-add.light {
   background-color: #fff;
 }
-.add-todo span {
+.todo-add span {
   background-color: transparent;
   border: 1px solid #4d5066;
   border-radius: 50%;
@@ -98,7 +98,7 @@ body.light {
   margin-right: 10px;
   width: 20px;
 }
-.add-todo input {
+.todo-add input {
   background-color: transparent;
   border: none;
   caret-color: #3a7bfd;
@@ -106,21 +106,21 @@ body.light {
   font-size: 13px;
   width: 90%;
 }
-.add-todo input.dark {
+.todo-add input.dark {
   color: #cacde8;
 }
-.add-todo input.light {
+.todo-add input.light {
   color: #484b6a;
 }
-.add-todo input::-moz-placeholder {
+.todo-add input::-moz-placeholder {
   color: #777a92;
 }
-.add-todo input:-ms-input-placeholder {
+.todo-add input:-ms-input-placeholder {
   color: #777a92;
 }
-.add-todo input::placeholder {
+.todo-add input::placeholder {
   color: #777a92;
 }
-.add-todo input:focus {
+.todo-add input:focus {
   outline: none;
 }/*# sourceMappingURL=style.css.map */
