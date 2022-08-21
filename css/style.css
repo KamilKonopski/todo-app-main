@@ -125,9 +125,18 @@ body.light {
   outline: none;
 }
 
+.todo-list {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
 .todo-list.dark {
   background-color: #25273c;
 }
 .todo-list.light {
   background-color: #fff;
+}
+.todo-list .simple-todo {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

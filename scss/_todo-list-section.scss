@@ -1,9 +1,18 @@
 .todo-list {
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 15px;
+
 	&.dark {
 		background-color: $veryDarkDesaturatedBlue;
 	}
 
 	&.light {
 		background-color: #fff;
+	}
+
+	& .simple-todo {
+		display: flex;
 	}
 }
