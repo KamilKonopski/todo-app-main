@@ -1,0 +1,9 @@
+.todo-list {
+	&.dark {
+		background-color: $veryDarkDesaturatedBlue;
+	}
+
+	&.light {
+		background-color: #fff;
+	}
+}

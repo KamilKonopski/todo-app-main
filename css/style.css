@@ -123,4 +123,11 @@ body.light {
 }
 .todo-add input:focus {
   outline: none;
+}
+
+.todo-list.dark {
+  background-color: #25273c;
+}
+.todo-list.light {
+  background-color: #fff;
 }/*# sourceMappingURL=style.css.map */
