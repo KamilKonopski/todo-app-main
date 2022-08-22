@@ -4,7 +4,6 @@ export const doneTodo = () => {
     for(let i = 0; i < doneButtons.length; i++) {
         doneButtons[i].addEventListener('click', () => {
             const nextElement = doneButtons[i].nextElementSibling;
-            console.log(nextElement)
             nextElement.classList.toggle('done')
         })
     }
