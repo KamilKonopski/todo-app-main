@@ -1,4 +1,5 @@
 import { deleteTodo } from "./deleteTodo.js";
+import { doneTodo } from "./doneTodo.js";
 
 const addNewTodo = () => {
     const addTodoInput = document.getElementById('add-todo');
@@ -28,6 +29,7 @@ const addNewTodo = () => {
             addTodoInput.value = "";
             }
         }
+        doneTodo()
         deleteTodo()
     });
 
