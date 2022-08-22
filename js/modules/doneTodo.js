@@ -11,10 +11,3 @@ export const doneTodo = () => {
 
 }
 
-
-// doneTestButton.addEventListener('click', () => {
-//     const nextELement = doneTestButton.nextElementSibling;
-//     nextELement.classList.toggle('done');
-// })
-
-
