@@ -33,6 +33,11 @@
 		& .text-todo {
 			color: $darkLightGrayishBlue;
 			font-size: 12px;
+
+			& .done {
+				color: $darkVeryDarknestGrayishBlue;
+				text-decoration: line-through;
+			}
 		}
 
 		& .delete-todo {

@@ -158,6 +158,10 @@ body.light {
   color: #cacde8;
   font-size: 12px;
 }
+.todo-list .simple-todo .text-todo .done {
+  color: #393a4c;
+  text-decoration: line-through;
+}
 .todo-list .simple-todo .delete-todo {
   background: url("../images/icon-cross.svg") no-repeat center;
   border: none;
