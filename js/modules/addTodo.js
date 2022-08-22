@@ -1,3 +1,5 @@
+import { deleteTodo } from "./deleteTodo.js";
+
 const addNewTodo = () => {
     const addTodoInput = document.getElementById('add-todo');
     addTodoInput.addEventListener('keypress', (e) => {
@@ -26,7 +28,9 @@ const addNewTodo = () => {
             addTodoInput.value = "";
             }
         }
+        deleteTodo()
     });
+
 };
 
 export { addNewTodo }
