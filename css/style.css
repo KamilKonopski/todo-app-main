@@ -142,6 +142,7 @@ body.light {
   border-bottom: 1px solid #777a92;
   display: flex;
   padding: 15px;
+  position: relative;
 }
 .todo-list .simple-todo .done-todo {
   background-color: transparent;
@@ -155,14 +156,16 @@ body.light {
 }
 .todo-list .simple-todo .text-todo {
   color: #cacde8;
-  font-size: 11px;
-  margin-right: 60px;
+  font-size: 12px;
 }
 .todo-list .simple-todo .delete-todo {
   background: url("../images/icon-cross.svg") no-repeat center;
   border: none;
   cursor: pointer;
   height: 12px;
+  position: absolute;
+  right: 5%;
+  top: 35%;
   width: 12px;
 }
 

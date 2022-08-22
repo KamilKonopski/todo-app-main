@@ -16,8 +16,8 @@
 		align-items: center;
 		border-bottom: 1px solid $darkDarkGrayishBlue;
 		display: flex;
-		// justify-content: space-between;
 		padding: 15px;
+		position: relative;
 
 		& .done-todo {
 			background-color: transparent;
@@ -32,8 +32,7 @@
 
 		& .text-todo {
 			color: $darkLightGrayishBlue;
-			font-size: 11px;
-			margin-right: 60px;
+			font-size: 12px;
 		}
 
 		& .delete-todo {
@@ -41,6 +40,9 @@
 			border: none;
 			cursor: pointer;
 			height: 12px;
+			position: absolute;
+			right: 5%;
+			top: 35%;
 			width: 12px;
 		}
 	}
