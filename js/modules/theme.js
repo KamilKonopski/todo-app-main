@@ -1,7 +1,6 @@
 const themeButton = document.getElementById('theme-button');
 const darkTheme = document.getElementsByClassName('dark');
 const lightTheme = document.getElementsByClassName('light');
-console.log(darkTheme);
 
 export const toggleTheme = () => {
     themeButton.addEventListener('click', () => {
