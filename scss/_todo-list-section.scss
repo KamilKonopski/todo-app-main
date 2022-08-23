@@ -77,6 +77,24 @@
 
 		& .filters-buttons {
 			display: none;
+
+			@media screen and (min-width: 1024px) {
+				display: block;
+
+				& button {
+					background-color: transparent;
+					border: none;
+					color: $darkVeryDarkGrayishBlue;
+					cursor: pointer;
+					font-size: 14px;
+					font-weight: 700;
+					margin-left: 20px;
+
+					&.active {
+						color: $brightBlue;
+					}
+				}
+			}
 		}
 	}
 }
@@ -87,6 +105,10 @@
 	justify-content: center;
 	margin-top: 15px;
 	padding: 15px 0;
+
+	@media screen and (min-width: 1024px) {
+		display: none;
+	}
 
 	&.dark {
 		background-color: $veryDarkDesaturatedBlue;
