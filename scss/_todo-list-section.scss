@@ -91,7 +91,7 @@
 			@media screen and (min-width: 1024px) {
 				display: block;
 
-				& button {
+				& .filter-button {
 					background-color: transparent;
 					border: none;
 					color: $darkVeryDarkGrayishBlue;
@@ -128,7 +128,7 @@
 		background-color: #fff;
 	}
 
-	& button {
+	& .filter-button {
 		background-color: transparent;
 		border: none;
 		color: $darkVeryDarkGrayishBlue;

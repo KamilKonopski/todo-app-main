@@ -4,6 +4,8 @@ const lightTheme = document.getElementsByClassName('light');
 const addTodoInput = document.getElementById('add-todo');
 const todoList = document.querySelector('.todo-list');
 const itemsLeftNumber = document.querySelector('.items-left-number');
+const filterButtons = document.querySelectorAll('.filter-button');
+
 
 // Theme Changer 
 
@@ -81,3 +83,16 @@ todoList.addEventListener('click', e => {
       };
     });
 });
+
+// Active filter button
+
+for (let i = 0; i < filterButtons.length; i++) {
+    filterButtons[i].addEventListener("click", function () {
+        let current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(
+            " active",
+            ""
+        );
+        this.className += " active";
+    });
+}
