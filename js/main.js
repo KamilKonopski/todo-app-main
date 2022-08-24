@@ -5,6 +5,8 @@ const addTodoInput = document.getElementById('add-todo');
 const todoList = document.querySelector('.todo-list');
 const itemsLeftNumber = document.querySelector('.items-left-number');
 
+// Theme Changer 
+
 themeButton.addEventListener('click', () => {
     if(themeButton.classList.contains('dark')) {
         for(let i = 0; i = darkTheme.length; i++) {
@@ -16,6 +18,8 @@ themeButton.addEventListener('click', () => {
         }; 
     };
 });
+
+// Add Todo
 
 addTodoInput.addEventListener('keypress', (e) => {
     if(e.key === "Enter") {
@@ -46,26 +50,31 @@ addTodoInput.addEventListener('keypress', (e) => {
     
 });
 
+// Delete Todo
+
 todoList.addEventListener('click', e => {
     const item = e.target;
     if(item.classList[0] === 'delete-todo') {
         item.parentElement.remove();
     }
+});
 
+// Completed Todo 
+
+todoList.addEventListener('click', e => {
+    const item = e.target;
     if(item.classList[0] === 'done-todo') {
         const nextElement = item.nextElementSibling;
         nextElement.classList.toggle('completed');
         item.classList.toggle('completed');
         item.parentElement.classList.toggle('completed');
-    }
+    };
 
     const simpleTodo = document.querySelectorAll('.simple-todo');
 
       simpleTodo.forEach(item => {
-        if(item.classList.contains('completed')) {
-            const completedSimpleTodo = document.querySelectorAll('div.completed')
+        const completedSimpleTodo = document.querySelectorAll('div.completed');
+        if(item.classList.contains('completed') && completedSimpleTodo) {
             itemsLeftNumber.innerText = completedSimpleTodo.length;
-        }
-      })
-    
-})
+      }});
+});
