@@ -28,13 +28,17 @@
 			height: 20px;
 			margin-right: 10px;
 			width: 20px;
+
+			&.completed {
+				background: $checkBackground;
+			}
 		}
 
 		& .text-todo {
 			color: $darkLightGrayishBlue;
 			font-size: 12px;
 
-			&.done {
+			&.completed {
 				color: $darkVeryDarknestGrayishBlue;
 				text-decoration: line-through;
 			}
