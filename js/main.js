@@ -74,7 +74,10 @@ todoList.addEventListener('click', e => {
 
       simpleTodo.forEach(item => {
         const completedSimpleTodo = document.querySelectorAll('div.completed');
-        if(item.classList.contains('completed') && completedSimpleTodo) {
+        if(item.classList.contains('completed') || completedSimpleTodo.length) {
             itemsLeftNumber.innerText = completedSimpleTodo.length;
-      }});
+      } else if (!item.classList.contains('completed')) {
+            itemsLeftNumber.innerText = '0';
+      };
+    });
 });
