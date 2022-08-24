@@ -3,6 +3,7 @@ const darkTheme = document.getElementsByClassName('dark');
 const lightTheme = document.getElementsByClassName('light');
 const addTodoInput = document.getElementById('add-todo');
 const todoList = document.querySelector('.todo-list');
+const itemsLeftNumber = document.querySelector('.items-left-number');
 
 themeButton.addEventListener('click', () => {
     if(themeButton.classList.contains('dark')) {
@@ -54,8 +55,17 @@ todoList.addEventListener('click', e => {
     if(item.classList[0] === 'done-todo') {
         const nextElement = item.nextElementSibling;
         nextElement.classList.toggle('completed');
-        console.log(item);
         item.classList.toggle('completed');
-        item.parentElement.classList.toggle('completed')
+        item.parentElement.classList.toggle('completed');
     }
+
+    const simpleTodo = document.querySelectorAll('.simple-todo');
+
+      simpleTodo.forEach(item => {
+        if(item.classList.contains('completed')) {
+            const completedSimpleTodo = document.querySelectorAll('div.completed')
+            itemsLeftNumber.innerText = completedSimpleTodo.length;
+        }
+      })
+    
 })
