@@ -30,7 +30,8 @@
 			width: 20px;
 
 			&.completed {
-				background: $checkBackground;
+				background: url("../images/icon-check.svg") no-repeat center,
+					$checkBackground;
 			}
 		}
 
