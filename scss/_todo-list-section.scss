@@ -106,9 +106,18 @@
 
 .filters-todo {
 	align-items: center;
+	border-radius: 5px;
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 0;
+
+	&.dark {
+		background-color: $veryDarkDesaturatedBlue;
+	}
+
+	&.light {
+		background-color: #fff;
+	}
 
 	& .items-left {
 		color: $darkVeryDarkGrayishBlue;
