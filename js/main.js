@@ -7,6 +7,7 @@ const itemsLeftNumber = document.querySelector('.items-left-number');
 const filterButtons = document.querySelectorAll('.filter-button');
 const clearCompletedButton = document.querySelector('.clear-completed');
 const completedButton = document.querySelector('.filter-completed');
+const todoApp = document.querySelector('.todo-app');
 
 
 // Theme Changer 
@@ -112,9 +113,11 @@ clearCompletedButton.addEventListener('click', () => {
 //completed button 
 
 completedButton.addEventListener('click', () => {
-    const completedTodos = document.querySelectorAll('.simple-todo.completed')
+    const completedTodos = document.querySelectorAll('.simple-todo.completed');
+    const todoListCompleted = document.querySelector('.todo-list--completed');
     completedTodos.forEach(completedTodo => {
         document.querySelector('.todo-list--completed').appendChild(completedTodo);
     })
+    todoApp.insertBefore(todoListCompleted, todoList);
     
 });
