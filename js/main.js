@@ -116,8 +116,9 @@ completedButton.addEventListener('click', () => {
     const completedTodos = document.querySelectorAll('.simple-todo.completed');
     const todoListCompleted = document.querySelector('.todo-list--completed');
     completedTodos.forEach(completedTodo => {
-        document.querySelector('.todo-list--completed').appendChild(completedTodo);
+        todoListCompleted.appendChild(completedTodo);
     })
     todoApp.insertBefore(todoListCompleted, todoListAll);
-
+    todoListAll.style.display = 'none';
+    todoListCompleted.style.display = 'flex';
 });
