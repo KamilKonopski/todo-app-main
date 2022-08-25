@@ -33,8 +33,8 @@ addTodoInput.addEventListener('keypress', (e) => {
         divElement.classList.add('simple-todo');
         document.querySelector('.todo-list').appendChild(divElement);
 
-        const filtersDiv = document.querySelector('.filters-todo');
-        divElement.parentNode.insertBefore(divElement, filtersDiv);
+        // const filtersDiv = document.querySelector('.filters-todo');
+        // divElement.parentNode.insertBefore(divElement, filtersDiv);
 
         const doneButton = document.createElement('button');
         doneButton.classList.add('done-todo');
@@ -119,5 +119,5 @@ completedButton.addEventListener('click', () => {
         document.querySelector('.todo-list--completed').appendChild(completedTodo);
     })
     todoApp.insertBefore(todoListCompleted, todoList);
-    
+
 });
