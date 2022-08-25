@@ -6,8 +6,10 @@ const todoListAll = document.querySelector('.todo-list--all');
 const itemsLeftNumber = document.querySelector('.items-left-number');
 const filterButtons = document.querySelectorAll('.filter-button');
 const clearCompletedButton = document.querySelector('.clear-completed');
-const completedButton = document.querySelector('.filter-completed');
+const completedFilterButton = document.querySelector('.filter-completed');
 const todoApp = document.querySelector('.todo-app');
+const allFilterButton = document.querySelector('.filter-all');
+const todoListCompleted = document.querySelector('.todo-list--completed');
 
 
 // Theme Changer 
@@ -110,15 +112,22 @@ clearCompletedButton.addEventListener('click', () => {
     });
 });
 
-//completed button 
+//completed todo filter button 
 
-completedButton.addEventListener('click', () => {
+completedFilterButton.addEventListener('click', () => {
     const completedTodos = document.querySelectorAll('.simple-todo.completed');
-    const todoListCompleted = document.querySelector('.todo-list--completed');
+    
     completedTodos.forEach(completedTodo => {
         todoListCompleted.appendChild(completedTodo);
     })
     todoApp.insertBefore(todoListCompleted, todoListAll);
     todoListAll.style.display = 'none';
     todoListCompleted.style.display = 'flex';
+});
+
+// all todo filter button
+
+allFilterButton.addEventListener('click', () => {
+    todoListAll.style.display = 'flex';
+    todoListCompleted.style.display = 'none';
 });
