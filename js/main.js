@@ -2,7 +2,7 @@ const themeButton = document.getElementById('theme-button');
 const darkTheme = document.getElementsByClassName('dark');
 const lightTheme = document.getElementsByClassName('light');
 const addTodoInput = document.getElementById('add-todo');
-const todoList = document.querySelector('.todo-list');
+const todoListAll = document.querySelector('.todo-list--all');
 const itemsLeftNumber = document.querySelector('.items-left-number');
 const filterButtons = document.querySelectorAll('.filter-button');
 const clearCompletedButton = document.querySelector('.clear-completed');
@@ -31,7 +31,7 @@ addTodoInput.addEventListener('keypress', (e) => {
         if(addTodoInput.value !== '') {
         const divElement = document.createElement('div');
         divElement.classList.add('simple-todo');
-        document.querySelector('.todo-list').appendChild(divElement);
+        todoListAll.appendChild(divElement);
 
         // const filtersDiv = document.querySelector('.filters-todo');
         // divElement.parentNode.insertBefore(divElement, filtersDiv);
@@ -57,7 +57,7 @@ addTodoInput.addEventListener('keypress', (e) => {
 
 // Delete Todo
 
-todoList.addEventListener('click', e => {
+todoListAll.addEventListener('click', e => {
     const item = e.target;
     if(item.classList[0] === 'delete-todo') {
         item.parentElement.remove();
@@ -66,7 +66,7 @@ todoList.addEventListener('click', e => {
 
 // Completed Todo 
 
-todoList.addEventListener('click', e => {
+todoListAll.addEventListener('click', e => {
     const item = e.target;
     if(item.classList[0] === 'done-todo') {
         const nextElement = item.nextElementSibling;
@@ -118,6 +118,6 @@ completedButton.addEventListener('click', () => {
     completedTodos.forEach(completedTodo => {
         document.querySelector('.todo-list--completed').appendChild(completedTodo);
     })
-    todoApp.insertBefore(todoListCompleted, todoList);
+    todoApp.insertBefore(todoListCompleted, todoListAll);
 
 });
