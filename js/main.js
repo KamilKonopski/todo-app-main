@@ -10,6 +10,8 @@ const completedFilterButton = document.querySelector('.filter-completed');
 const todoApp = document.querySelector('.todo-app');
 const allFilterButton = document.querySelector('.filter-all');
 const todoListCompleted = document.querySelector('.todo-list--completed');
+const todoListActive = document.querySelector('.todo-list--active');
+const activeFilterButton = document.querySelector('.filter-active');
 
 
 // Theme Changer 
@@ -34,9 +36,6 @@ addTodoInput.addEventListener('keypress', (e) => {
         const divElement = document.createElement('div');
         divElement.classList.add('simple-todo');
         todoListAll.appendChild(divElement);
-
-        // const filtersDiv = document.querySelector('.filters-todo');
-        // divElement.parentNode.insertBefore(divElement, filtersDiv);
 
         const doneButton = document.createElement('button');
         doneButton.classList.add('done-todo');
@@ -122,6 +121,7 @@ completedFilterButton.addEventListener('click', () => {
     })
     todoApp.insertBefore(todoListCompleted, todoListAll);
     todoListAll.style.display = 'none';
+    todoListActive.style.display = 'none';
     todoListCompleted.style.display = 'flex';
 });
 
@@ -130,4 +130,24 @@ completedFilterButton.addEventListener('click', () => {
 allFilterButton.addEventListener('click', () => {
     todoListAll.style.display = 'flex';
     todoListCompleted.style.display = 'none';
+    todoListActive.style.display = 'none';
 });
+
+// active todo filter button 
+
+activeFilterButton.addEventListener('click', () => {
+    const activeTodos = [...document.querySelectorAll('.simple-todo')];
+        activeTodos.forEach(activeTodo => {
+            if(!activeTodo.classList.contains('completed')){
+            todoListActive.appendChild(activeTodo);
+            }
+        });
+
+        todoApp.insertBefore(todoListActive, todoListAll);
+        todoListAll.style.display = 'none';
+        todoListActive.style.display = 'flex';
+        todoListCompleted.style.display = 'none';
+});
+
+
+//Stworzyć tablicę i pushnąć do niej odpowiednie elementy i wyświetlić
