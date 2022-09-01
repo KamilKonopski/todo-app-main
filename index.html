@@ -19,7 +19,7 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="css/style.min.css" />
-		<script defer src="js/main.js"></script>
+		<script defer src="js/index.js"></script>
 	</head>
 	<body class="dark">
 		<header class="header dark">
@@ -28,16 +28,18 @@
 		</header>
 		<main class="todo-app">
 			<section class="todo-add dark">
-				<span></span>
-				<input
-					class="dark"
-					type="text"
-					name="add-todo"
-					id="add-todo"
-					placeholder="Create a new todo..."
-				/>
+				<form id="add-todo-form">
+					<span></span>
+					<input
+						class="dark"
+						type="text"
+						name="add-todo"
+						id="add-todo"
+						placeholder="Create a new todo..."
+					/>
+				</form>
 			</section>
-			<section class="todo-list todo-list--all dark"></section>
+			<div class="todo-list todo-list--all dark"></div>
 			<section class="todo-list todo-list--active dark"></section>
 			<section class="todo-list todo-list--completed dark"></section>
 			<div class="filters-todo dark">
