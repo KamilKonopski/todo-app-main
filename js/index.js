@@ -1,29 +1,38 @@
 "use strict";
-const addTodoForm = document.querySelector("#add-todo-form");
+//add todo variables
+const addTodoForm = document.querySelector(".add-todo-form");
 const addTodoInput = document.querySelector("#add-todo");
-const todoList = document.querySelector(".todo-list--all");
+//todo list variables
+const todoList = document.querySelector(".todo-list__containter");
+//todos array
 let todos = [];
+// functions
 const addTodo = (todo) => {
     todos.push(todo);
 };
 const renderTodoList = () => {
     if (todos.length) {
         todoList.innerHTML = "";
-        const todoListContainer = document.createElement("ul");
         todos.map((todo) => {
+            const todoListContainer = document.createElement("li");
+            todoListContainer.classList.add("simple-todo");
             const completedButtonElement = document.createElement("button");
+            completedButtonElement.classList.add("done-todo");
             todoListContainer.appendChild(completedButtonElement);
-            const liElement = document.createElement("li");
-            liElement.innerText = todo;
-            todoListContainer.appendChild(liElement);
+            const spanElement = document.createElement("span");
+            spanElement.classList.add("text-todo");
+            spanElement.innerText = todo;
+            todoListContainer.appendChild(spanElement);
             const deleteButtonELement = document.createElement("button");
+            deleteButtonELement.classList.add("delete-todo");
             todoListContainer.appendChild(deleteButtonELement);
+            todoList === null || todoList === void 0 ? void 0 : todoList.appendChild(todoListContainer);
         });
-        todoList === null || todoList === void 0 ? void 0 : todoList.appendChild(todoListContainer);
     }
     else
         return;
 };
+// listeners
 addTodoForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (addTodoInput.value !== "") {
@@ -32,4 +41,5 @@ addTodoForm.addEventListener("submit", (event) => {
         renderTodoList();
     }
 });
+//first todo list render
 renderTodoList();

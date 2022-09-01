@@ -28,7 +28,7 @@
 		</header>
 		<main class="todo-app">
 			<section class="todo-add dark">
-				<form id="add-todo-form">
+				<form class="add-todo-form">
 					<span></span>
 					<input
 						class="dark"
@@ -39,9 +39,11 @@
 					/>
 				</form>
 			</section>
-			<section class="todo-list todo-list--all dark"></section>
-			<section class="todo-list todo-list--active dark"></section>
-			<section class="todo-list todo-list--completed dark"></section>
+			<section class="todo-list todo-list--all dark">
+				<ul class="todo-list__containter"></ul>
+			</section>
+			<!-- <section class="todo-list todo-list--active dark"></section>
+			<section class="todo-list todo-list--completed dark"></section> -->
 			<div class="filters-todo dark">
 				<p class="items-left">
 					<span class="items-left-number">0</span> items left

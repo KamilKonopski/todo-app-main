@@ -1,9 +1,16 @@
-const addTodoForm = document.querySelector("#add-todo-form") as HTMLFormElement;
+//add todo variables
+const addTodoForm = document.querySelector(".add-todo-form") as HTMLFormElement;
 const addTodoInput = document.querySelector("#add-todo") as HTMLInputElement;
-const todoList = document.querySelector(".todo-list--all") as HTMLDivElement;
 
+//todo list variables
+const todoList = document.querySelector(
+	".todo-list__containter"
+) as HTMLDivElement;
+
+//todos array
 let todos: string[] = [];
 
+// functions
 const addTodo = (todo: string) => {
 	todos.push(todo);
 };
@@ -12,22 +19,30 @@ const renderTodoList = () => {
 	if (todos.length) {
 		todoList.innerHTML = "";
 
-		const todoListContainer = document.createElement("ul");
 		todos.map((todo) => {
-			const completedButtonElement = document.createElement("button");
-			todoListContainer.appendChild(completedButtonElement);
-			const liElement = document.createElement("li");
-			liElement.innerText = todo;
-			todoListContainer.appendChild(liElement);
-			const deleteButtonELement = document.createElement("button");
-			todoListContainer.appendChild(deleteButtonELement);
-		});
+			const todoListContainer = document.createElement("li");
+			todoListContainer.classList.add("simple-todo");
 
-		todoList?.appendChild(todoListContainer);
+			const completedButtonElement = document.createElement("button");
+			completedButtonElement.classList.add("done-todo");
+			todoListContainer.appendChild(completedButtonElement);
+
+			const spanElement = document.createElement("span");
+			spanElement.classList.add("text-todo");
+			spanElement.innerText = todo;
+			todoListContainer.appendChild(spanElement);
+
+			const deleteButtonELement = document.createElement("button");
+			deleteButtonELement.classList.add("delete-todo");
+			todoListContainer.appendChild(deleteButtonELement);
+
+			todoList?.appendChild(todoListContainer);
+		});
 	} else return;
 };
 
-addTodoForm.addEventListener("submit", (event) => {
+// listeners
+addTodoForm.addEventListener("submit", (event: Event) => {
 	event.preventDefault();
 
 	if (addTodoInput.value !== "") {
@@ -39,4 +54,5 @@ addTodoForm.addEventListener("submit", (event) => {
 	}
 });
 
+//first todo list render
 renderTodoList();
