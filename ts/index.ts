@@ -19,7 +19,7 @@ const randomId = () => {
 };
 
 //todos array
-const todos: ArrayTodoList[] = [];
+let todos: ArrayTodoList[] = [];
 
 const renderTodoList = () => {
 	if (todos.length) {
@@ -40,6 +40,7 @@ const renderTodoList = () => {
 
 			const deleteButtonElement = document.createElement("button");
 			deleteButtonElement.classList.add("delete-todo");
+			deleteButtonElement.setAttribute("data-set-id", todo.id);
 			todoListContainer.appendChild(deleteButtonElement);
 
 			todoList.appendChild(todoListContainer);
@@ -55,6 +56,18 @@ const addTodo = (todo: string) => {
 	});
 };
 
+const deleteTodo = (event: Event) => {
+	const currentTarget = event.target as HTMLButtonElement;
+	const currentId = currentTarget.getAttribute("data-set-id");
+	console.log(currentId);
+
+	if (currentTarget.classList[0] === "delete-todo") {
+		let newTodos = todos.filter((todo) => todo.id !== currentId);
+		todos = newTodos;
+		renderTodoList();
+	}
+};
+
 addTodoForm.addEventListener("submit", (event: SubmitEvent) => {
 	event.preventDefault();
 
@@ -63,5 +76,7 @@ addTodoForm.addEventListener("submit", (event: SubmitEvent) => {
 
 	renderTodoList();
 });
+
+todoList.addEventListener("click", deleteTodo);
 
 renderTodoList();

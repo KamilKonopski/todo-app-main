@@ -10,7 +10,7 @@ const randomId = () => {
         .substring(1);
 };
 //todos array
-const todos = [];
+let todos = [];
 const renderTodoList = () => {
     if (todos.length) {
         todoList.innerHTML = "";
@@ -26,6 +26,7 @@ const renderTodoList = () => {
             todoListContainer.appendChild(textSpanElement);
             const deleteButtonElement = document.createElement("button");
             deleteButtonElement.classList.add("delete-todo");
+            deleteButtonElement.setAttribute("data-set-id", todo.id);
             todoListContainer.appendChild(deleteButtonElement);
             todoList.appendChild(todoListContainer);
         });
@@ -40,10 +41,21 @@ const addTodo = (todo) => {
         completed: false,
     });
 };
+const deleteTodo = (event) => {
+    const currentTarget = event.target;
+    const currentId = currentTarget.getAttribute("data-set-id");
+    console.log(currentId);
+    if (currentTarget.classList[0] === "delete-todo") {
+        let newTodos = todos.filter((todo) => todo.id !== currentId);
+        todos = newTodos;
+        renderTodoList();
+    }
+};
 addTodoForm.addEventListener("submit", (event) => {
     event.preventDefault();
     addTodo(addTodoInput.value);
     addTodoInput.value = "";
     renderTodoList();
 });
+todoList.addEventListener("click", deleteTodo);
 renderTodoList();
