@@ -12,6 +12,27 @@ interface ArrayTodoList {
 	todo: string;
 	done: boolean;
 }
+const randomId = () => {
+	return Math.floor((1 + Math.random()) * 0x10000)
+		.toString(16)
+		.substring(1);
+};
 
 //todos array
-let todos: ArrayTodoList[];
+const todos: ArrayTodoList[] = [
+	{
+		id: randomId(),
+		todo: "Pójść do sklepu",
+		done: false,
+	},
+	{
+		id: randomId(),
+		todo: "Wbić range w Valoooo",
+		done: false,
+	},
+	{
+		id: randomId(),
+		todo: "Nauczyć się TS",
+		done: false,
+	},
+];
