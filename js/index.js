@@ -53,9 +53,11 @@ const deleteTodo = (event) => {
 };
 addTodoForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    addTodo(addTodoInput.value);
-    addTodoInput.value = "";
-    renderTodoList();
+    if (addTodoInput.value !== "") {
+        addTodo(addTodoInput.value);
+        addTodoInput.value = "";
+        renderTodoList();
+    }
 });
 todoList.addEventListener("click", deleteTodo);
 renderTodoList();

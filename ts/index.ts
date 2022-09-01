@@ -70,11 +70,12 @@ const deleteTodo = (event: Event) => {
 
 addTodoForm.addEventListener("submit", (event: SubmitEvent) => {
 	event.preventDefault();
+	if (addTodoInput.value !== "") {
+		addTodo(addTodoInput.value);
+		addTodoInput.value = "";
 
-	addTodo(addTodoInput.value);
-	addTodoInput.value = "";
-
-	renderTodoList();
+		renderTodoList();
+	}
 });
 
 todoList.addEventListener("click", deleteTodo);
