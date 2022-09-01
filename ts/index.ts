@@ -55,7 +55,7 @@ const addTodo = (todo: string) => {
 	});
 };
 
-addTodoForm.addEventListener("submit", (event) => {
+addTodoForm.addEventListener("submit", (event: SubmitEvent) => {
 	event.preventDefault();
 
 	addTodo(addTodoInput.value);
