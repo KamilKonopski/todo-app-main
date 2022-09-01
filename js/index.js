@@ -6,14 +6,18 @@ let todos = [];
 const addTodo = (todo) => {
     todos.push(todo);
 };
-const render = () => {
+const renderTodoList = () => {
     if (todos.length) {
         todoList.innerHTML = "";
         const todoListContainer = document.createElement("ul");
         todos.map((todo) => {
+            const completedButtonElement = document.createElement("button");
+            todoListContainer.appendChild(completedButtonElement);
             const liElement = document.createElement("li");
             liElement.innerText = todo;
             todoListContainer.appendChild(liElement);
+            const deleteButtonELement = document.createElement("button");
+            todoListContainer.appendChild(deleteButtonELement);
         });
         todoList === null || todoList === void 0 ? void 0 : todoList.appendChild(todoListContainer);
     }
@@ -25,7 +29,7 @@ addTodoForm.addEventListener("submit", (event) => {
     if (addTodoInput.value !== "") {
         addTodo(addTodoInput.value);
         addTodoInput.value = "";
-        render();
+        renderTodoList();
     }
 });
-render();
+renderTodoList();
