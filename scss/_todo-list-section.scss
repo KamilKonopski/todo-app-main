@@ -16,8 +16,9 @@
 		align-items: center;
 		border-bottom: 1px solid $darkDarkGrayishBlue;
 		display: flex;
+		list-style: none;
 		padding: 15px;
-		position: relative;
+		width: 100%;
 
 		& .done-todo {
 			background-color: transparent;
@@ -26,7 +27,6 @@
 			cursor: pointer;
 			display: block;
 			height: 20px;
-			margin-right: 10px;
 			transition: 0.2s linear;
 			width: 20px;
 
@@ -43,6 +43,8 @@
 		& .text-todo {
 			color: $darkLightGrayishBlue;
 			font-size: 12px;
+			margin-left: 15px;
+			width: 95%;
 
 			&.completed {
 				color: $darkVeryDarknestGrayishBlue;
@@ -55,9 +57,6 @@
 			border: none;
 			cursor: pointer;
 			height: 12px;
-			position: absolute;
-			right: 5%;
-			top: 35%;
 			width: 12px;
 		}
 	}
