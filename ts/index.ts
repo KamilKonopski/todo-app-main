@@ -10,7 +10,7 @@ const todoList = document.querySelector(
 interface ArrayTodoList {
 	id: string;
 	todo: string;
-	done: boolean;
+	completed: boolean;
 }
 const randomId = () => {
 	return Math.floor((1 + Math.random()) * 0x10000)
@@ -19,20 +19,49 @@ const randomId = () => {
 };
 
 //todos array
-const todos: ArrayTodoList[] = [
-	{
+const todos: ArrayTodoList[] = [];
+
+const renderTodoList = () => {
+	if (todos.length) {
+		todoList.innerHTML = "";
+
+		todos.map((todo) => {
+			const todoListContainer = document.createElement("li");
+			todoListContainer.classList.add("simple-todo");
+
+			const completedButtonELement = document.createElement("button");
+			completedButtonELement.classList.add("done-todo");
+			todoListContainer.appendChild(completedButtonELement);
+
+			const textSpanElement = document.createElement("span");
+			textSpanElement.classList.add("text-todo");
+			textSpanElement.innerText = todo.todo;
+			todoListContainer.appendChild(textSpanElement);
+
+			const deleteButtonElement = document.createElement("button");
+			deleteButtonElement.classList.add("delete-todo");
+			todoListContainer.appendChild(deleteButtonElement);
+
+			todoList.appendChild(todoListContainer);
+		});
+	} else return;
+};
+
+const addTodo = (todo: string) => {
+	todos.push({
 		id: randomId(),
-		todo: "Pójść do sklepu",
-		done: false,
-	},
-	{
-		id: randomId(),
-		todo: "Wbić range w Valoooo",
-		done: false,
-	},
-	{
-		id: randomId(),
-		todo: "Nauczyć się TS",
-		done: false,
-	},
-];
+		todo: todo,
+		completed: false,
+	});
+};
+
+addTodoForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+
+	addTodo(addTodoInput.value);
+	addTodoInput.value = "";
+
+	renderTodoList();
+});
+
+renderTodoList();
