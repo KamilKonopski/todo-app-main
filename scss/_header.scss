@@ -13,7 +13,7 @@
 	}
 
 	&.dark {
-		background: url("../images/bg-mobile-dark.jpg") no-repeat;
+		background: url("../images/bg-mobile-dark.jpg") no-repeat center;
 
 		@media screen and (min-width: 1024px) {
 			background: url("../images/bg-desktop-dark.jpg") no-repeat;
