@@ -12,8 +12,8 @@ const randomId = () => {
 //todos array
 let todos = [];
 const renderTodoList = () => {
+    todoList.innerHTML = "";
     if (todos.length) {
-        todoList.innerHTML = "";
         todos.map((todo) => {
             const todoListContainer = document.createElement("li");
             todoListContainer.classList.add("todo-list__item");
