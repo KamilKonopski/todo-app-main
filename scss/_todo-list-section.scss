@@ -62,6 +62,39 @@
 	}
 }
 
+// .mobile-filters-buttons {
+// 	border-radius: 5px;
+// 	display: flex;
+// 	justify-content: center;
+// 	margin-top: 15px;
+// 	padding: 15px 0;
+
+// 	@media screen and (min-width: 1024px) {
+// 		display: none;
+// 	}
+
+// 	&.dark {
+// 		background-color: $veryDarkDesaturatedBlue;
+// 	}
+
+// 	&.light {
+// 		background-color: #fff;
+// 	}
+
+// 	& .filter-button {
+// 		background-color: transparent;
+// 		border: none;
+// 		color: $darkVeryDarkGrayishBlue;
+// 		font-size: 14px;
+// 		font-weight: 700;
+// 		margin-left: 20px;
+
+// 		&.active {
+// 			color: $brightBlue;
+// 		}
+// 	}
+// }
+
 .todo-list--active {
 	display: none;
 }
