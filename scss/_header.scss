@@ -28,7 +28,7 @@
 		}
 	}
 
-	& h1 {
+	&__title {
 		color: #fff;
 		font-size: 26px;
 		font-weight: 700;
@@ -42,7 +42,7 @@
 		}
 	}
 
-	& button {
+	&__button-theme {
 		border: none;
 		cursor: pointer;
 		height: 25px;
@@ -54,11 +54,11 @@
 		}
 	}
 
-	& button.dark {
+	&__button-theme.dark {
 		background: url("../images/icon-sun.svg") no-repeat center;
 	}
 
-	& button.light {
+	&__button-theme.light {
 		background: url("../images/icon-moon.svg") no-repeat center;
 	}
 }

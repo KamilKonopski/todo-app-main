@@ -5,7 +5,7 @@
 	padding: 15px;
 	width: 100%;
 
-	& .add-todo-form {
+	&__form {
 		display: flex;
 		width: 100%;
 	}
@@ -18,7 +18,7 @@
 		background-color: #fff;
 	}
 
-	& span {
+	&__circle {
 		background-color: transparent;
 		border: 1px solid $darkVeryDarkGrayishBlue;
 		border-radius: 50%;
@@ -28,7 +28,7 @@
 		width: 20px;
 	}
 
-	& input {
+	&__input {
 		background-color: transparent;
 		border: none;
 		caret-color: $brightBlue;

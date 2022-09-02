@@ -23,42 +23,36 @@
 	</head>
 	<body class="dark">
 		<header class="header dark">
-			<h1>todo</h1>
-			<button id="theme-button" class="dark"></button>
+			<h1 class="header__title">todo</h1>
+			<button class="header__button-theme dark"></button>
 		</header>
 		<main class="todo-app">
 			<section class="todo-add dark">
-				<form class="add-todo-form">
-					<span></span>
+				<form class="todo-add__form">
+					<span class="todo-add__circle"></span>
 					<input
-						class="dark"
 						type="text"
 						name="add-todo"
-						id="add-todo"
+						class="todo-add__input dark"
 						placeholder="Create a new todo..."
 					/>
 				</form>
 			</section>
-			<section class="todo-list todo-list--all dark">
+			<section class="todo-list dark">
 				<ul class="todo-list__containter"></ul>
 			</section>
-			<!-- <section class="todo-list todo-list--active dark"></section>
-			<section class="todo-list todo-list--completed dark"></section> -->
 			<div class="filters-todo dark">
-				<p class="items-left">
-					<span class="items-left-number">0</span> items left
+				<p class="filters-todo__items-left">
+					<span class="filters-todo__number">0</span> items left
 				</p>
-				<div class="filters-buttons">
-					<button class="filter-button filter-all active">All</button>
-					<button class="filter-button filter-active">Active</button>
-					<button class="filter-button filter-completed">Completed</button>
+				<div class="filters-todo__buttons">
+					<button class="filters-todo__button filter-all active">All</button>
+					<button class="filters-todo__button filter-active">Active</button>
+					<button class="filters-todo__button filter-completed">
+						Completed
+					</button>
 				</div>
-				<button class="clear-completed">Clear Completed</button>
-			</div>
-			<div class="mobile-filters-buttons dark">
-				<button class="filter-button filter-all active">All</button>
-				<button class="filter-button filter-active">Active</button>
-				<button class="filter-button filter-completed">Completed</button>
+				<button class="filters-todo__clear-completed">Clear Completed</button>
 			</div>
 		</main>
 		<div class="attribution">

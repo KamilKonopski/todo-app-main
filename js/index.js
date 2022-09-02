@@ -1,7 +1,7 @@
 "use strict";
 //add todo variables
-const addTodoForm = document.querySelector(".add-todo-form");
-const addTodoInput = document.querySelector("#add-todo");
+const addTodoForm = document.querySelector(".todo-add__form");
+const addTodoInput = document.querySelector(".todo-add__input");
 //todo list variables
 const todoList = document.querySelector(".todo-list__containter");
 const randomId = () => {
@@ -16,16 +16,16 @@ const renderTodoList = () => {
         todoList.innerHTML = "";
         todos.map((todo) => {
             const todoListContainer = document.createElement("li");
-            todoListContainer.classList.add("simple-todo");
+            todoListContainer.classList.add("todo-list__item");
             const completedButtonELement = document.createElement("button");
-            completedButtonELement.classList.add("done-todo");
+            completedButtonELement.classList.add("todo-list__completed-btn");
             todoListContainer.appendChild(completedButtonELement);
             const textSpanElement = document.createElement("span");
-            textSpanElement.classList.add("text-todo");
+            textSpanElement.classList.add("todo-list__text");
             textSpanElement.innerText = todo.todo;
             todoListContainer.appendChild(textSpanElement);
             const deleteButtonElement = document.createElement("button");
-            deleteButtonElement.classList.add("delete-todo");
+            deleteButtonElement.classList.add("todo-list__delete-btn");
             deleteButtonElement.setAttribute("data-set-id", todo.id);
             todoListContainer.appendChild(deleteButtonElement);
             todoList.appendChild(todoListContainer);
@@ -44,9 +44,8 @@ const addTodo = (todo) => {
 const deleteTodo = (event) => {
     const currentTarget = event.target;
     const currentId = currentTarget.getAttribute("data-set-id");
-    console.log(currentId);
-    if (currentTarget.classList[0] === "delete-todo") {
-        let newTodos = todos.filter((todo) => todo.id !== currentId);
+    if (currentTarget.classList[0] === "todo-list__delete-btn") {
+        const newTodos = todos.filter((todo) => todo.id !== currentId);
         todos = newTodos;
         renderTodoList();
     }

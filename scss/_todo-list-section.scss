@@ -12,86 +12,53 @@
 		background-color: #fff;
 	}
 
-	& .simple-todo {
+	&__item {
 		align-items: center;
 		border-bottom: 1px solid $darkDarkGrayishBlue;
 		display: flex;
 		list-style: none;
 		padding: 15px;
 		width: 100%;
-
-		& .done-todo {
-			background-color: transparent;
-			border: 1px solid #4d5066;
-			border-radius: 50%;
-			cursor: pointer;
-			display: block;
-			height: 20px;
-			transition: 0.2s linear;
-			width: 20px;
-
-			&.completed {
-				background: url("../images/icon-check.svg") no-repeat center,
-					$checkBackground;
-			}
-
-			&:hover {
-				border-color: $brightBlue;
-			}
-		}
-
-		& .text-todo {
-			color: $darkLightGrayishBlue;
-			font-size: 12px;
-			margin-left: 15px;
-			width: 95%;
-
-			&.completed {
-				color: $darkVeryDarknestGrayishBlue;
-				text-decoration: line-through;
-			}
-		}
-
-		& .delete-todo {
-			background: url("../images/icon-cross.svg") no-repeat center;
-			border: none;
-			cursor: pointer;
-			height: 12px;
-			width: 12px;
-		}
-	}
-}
-
-.mobile-filters-buttons {
-	border-radius: 5px;
-	display: flex;
-	justify-content: center;
-	margin-top: 15px;
-	padding: 15px 0;
-
-	@media screen and (min-width: 1024px) {
-		display: none;
 	}
 
-	&.dark {
-		background-color: $veryDarkDesaturatedBlue;
-	}
-
-	&.light {
-		background-color: #fff;
-	}
-
-	& .filter-button {
+	&__completed-btn {
 		background-color: transparent;
-		border: none;
-		color: $darkVeryDarkGrayishBlue;
-		font-size: 14px;
-		font-weight: 700;
-		margin-left: 20px;
+		border: 1px solid #4d5066;
+		border-radius: 50%;
+		cursor: pointer;
+		display: block;
+		height: 20px;
+		transition: 0.2s linear;
+		width: 20px;
 
-		&.active {
-			color: $brightBlue;
+		&.completed {
+			background: url("../images/icon-check.svg") no-repeat center,
+				$checkBackground;
 		}
+
+		&:hover {
+			border-color: $brightBlue;
+		}
+	}
+
+	&__text {
+		color: $darkLightGrayishBlue;
+		font-size: 12px;
+		margin-left: 15px;
+		width: 95%;
+
+		&.completed {
+			color: $darkVeryDarknestGrayishBlue;
+			text-decoration: line-through;
+		}
+	}
+
+	&__delete-btn {
+		background: url("../images/icon-cross.svg") no-repeat center;
+		border: none;
+		cursor: pointer;
+		height: 12px;
+		width: 12px;
 	}
 }
 
@@ -118,14 +85,14 @@
 		background-color: #fff;
 	}
 
-	& .items-left {
+	&__items-left {
 		color: $darkVeryDarkGrayishBlue;
 		font-size: 11px;
 		font-weight: 700;
 		margin-left: 15px;
 	}
 
-	& .clear-completed {
+	&__clear-completed {
 		background-color: transparent;
 		border: none;
 		color: $darkVeryDarkGrayishBlue;
@@ -135,25 +102,37 @@
 		margin-right: 15px;
 	}
 
-	& .filters-buttons {
-		display: none;
+	&__buttons {
+		background-color: $veryDarkDesaturatedBlue;
+		border-radius: 5px;
+		display: flex;
+		justify-content: center;
+		left: 0%;
+		height: 6vh;
+		position: absolute;
+		top: 110%;
+		width: 100%;
 
 		@media screen and (min-width: 1024px) {
 			display: block;
+			height: 2vh;
+			position: static;
+			text-align: center;
+			width: 50%;
+		}
+	}
 
-			& .filter-button {
-				background-color: transparent;
-				border: none;
-				color: $darkVeryDarkGrayishBlue;
-				cursor: pointer;
-				font-size: 14px;
-				font-weight: 700;
-				margin-left: 20px;
+	&__button {
+		background-color: transparent;
+		border: none;
+		color: $darkVeryDarkGrayishBlue;
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: 700;
+		margin: 0 10px;
 
-				&.active {
-					color: $brightBlue;
-				}
-			}
+		&.active {
+			color: $brightBlue;
 		}
 	}
 }
