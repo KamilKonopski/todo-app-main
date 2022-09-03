@@ -7,6 +7,7 @@ const todoList = document.querySelector(".todo-list__containter");
 //filters todo variables
 const itemsLeftNumber = document.querySelector(".filters-todo__number");
 const filtersButtons = document.querySelectorAll(".filters-todo__button");
+const clearCompletedButton = document.querySelector(".filters-todo__clear-completed");
 const randomId = () => {
     return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
@@ -27,8 +28,8 @@ const renderTodoList = () => {
                 todo.completed = !todo.completed;
                 completedButtonELement.classList.toggle("todo-list__completed-btn--completed");
                 textSpanElement.classList.toggle("todo-list__text--completed");
-                // addToCompletedTodos();
-                // addNumberToItemsLeft();
+                addToCompletedTodos();
+                addNumberToItemsLeft();
                 console.log("todos", todos);
                 console.log("completedTodos", completedTodos);
             });
@@ -44,8 +45,6 @@ const renderTodoList = () => {
             todoList.appendChild(todoListContainer);
         });
     }
-    else
-        return;
 };
 const addTodo = (todo) => {
     todos.push({
@@ -54,25 +53,26 @@ const addTodo = (todo) => {
         completed: false,
     });
 };
-// const addToCompletedTodos = () => {
-// 	todos.forEach((todo) => {
-// 		if (todo.completed === true) {
-// 			completedTodos.push(todo);
-// 			const newCompletedTodos = completedTodos.filter(
-// 				(completedTodo) => completedTodo.completed === true
-// 			);
-// 			completedTodos = newCompletedTodos;
-// 		}
-// 		console.log(completedTodos);
-// 	});
-// };
-// const addNumberToItemsLeft = () => {
-// 	if (completedTodos.length === 0) {
-// 		itemsLeftNumber.innerText = "0";
-// 	} else if (completedTodos.length > 0) {
-// 		itemsLeftNumber.innerText = `${completedTodos.length}`;
-// 	} else return;
-// };
+const addToCompletedTodos = () => {
+    todos.forEach((todo) => {
+        if (todo.completed === true) {
+            completedTodos.push(todo);
+            const filteredCompletedTodos = completedTodos.filter((completedTodo) => completedTodo.completed === true);
+            completedTodos = filteredCompletedTodos;
+        }
+        console.log(completedTodos);
+    });
+};
+const addNumberToItemsLeft = () => {
+    if (completedTodos.length === 0) {
+        itemsLeftNumber.innerText = "0";
+    }
+    else if (completedTodos.length > 0) {
+        itemsLeftNumber.innerText = `${completedTodos.length}`;
+    }
+    else
+        return;
+};
 const deleteTodo = (event) => {
     const currentTarget = event.target;
     const currentId = currentTarget.getAttribute("data-set-id");
@@ -89,6 +89,12 @@ filtersButtons.forEach((filtersButton) => {
         this.className += " filters-todo__button--active";
     });
 });
+const clearCompletedTodos = () => {
+    completedTodos.splice(0, completedTodos.length);
+    const filteredTodos = todos.filter((todo) => todo.completed === false);
+    todos = filteredTodos;
+    renderTodoList();
+};
 addTodoForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (addTodoInput.value !== "") {
@@ -98,4 +104,5 @@ addTodoForm.addEventListener("submit", (event) => {
     }
 });
 todoList.addEventListener("click", deleteTodo);
+clearCompletedButton.addEventListener("click", clearCompletedTodos);
 renderTodoList();
