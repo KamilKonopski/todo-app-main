@@ -54,14 +54,7 @@ const addTodo = (todo) => {
     });
 };
 const addToCompletedTodos = () => {
-    todos.forEach((todo) => {
-        if (todo.completed === true) {
-            completedTodos.push(todo);
-            const filteredCompletedTodos = completedTodos.filter((completedTodo) => completedTodo.completed === true);
-            completedTodos = filteredCompletedTodos;
-        }
-        console.log(completedTodos);
-    });
+    completedTodos = todos.filter((todo) => todo.completed === true);
 };
 const addNumberToItemsLeft = () => {
     if (completedTodos.length === 0) {
