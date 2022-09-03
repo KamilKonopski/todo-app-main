@@ -130,9 +130,9 @@
 		font-size: 14px;
 		font-weight: 700;
 		margin: 0 10px;
+	}
 
-		&.active {
-			color: $brightBlue;
-		}
+	&__button--active {
+		color: $brightBlue;
 	}
 }
