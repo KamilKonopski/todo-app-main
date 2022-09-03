@@ -31,14 +31,14 @@
 		transition: 0.2s linear;
 		width: 20px;
 
-		&.completed {
-			background: url("../images/icon-check.svg") no-repeat center,
-				$checkBackground;
-		}
-
 		&:hover {
 			border-color: $brightBlue;
 		}
+	}
+
+	&__completed-btn--completed {
+		background: url("../images/icon-check.svg") no-repeat center,
+			$checkBackground;
 	}
 
 	&__text {
@@ -46,11 +46,11 @@
 		font-size: 12px;
 		margin-left: 15px;
 		width: 95%;
+	}
 
-		&.completed {
-			color: $darkVeryDarknestGrayishBlue;
-			text-decoration: line-through;
-		}
+	&__text--completed {
+		color: $darkVeryDarknestGrayishBlue;
+		text-decoration: line-through;
 	}
 
 	&__delete-btn {
@@ -61,39 +61,6 @@
 		width: 12px;
 	}
 }
-
-// .mobile-filters-buttons {
-// 	border-radius: 5px;
-// 	display: flex;
-// 	justify-content: center;
-// 	margin-top: 15px;
-// 	padding: 15px 0;
-
-// 	@media screen and (min-width: 1024px) {
-// 		display: none;
-// 	}
-
-// 	&.dark {
-// 		background-color: $veryDarkDesaturatedBlue;
-// 	}
-
-// 	&.light {
-// 		background-color: #fff;
-// 	}
-
-// 	& .filter-button {
-// 		background-color: transparent;
-// 		border: none;
-// 		color: $darkVeryDarkGrayishBlue;
-// 		font-size: 14px;
-// 		font-weight: 700;
-// 		margin-left: 20px;
-
-// 		&.active {
-// 			color: $brightBlue;
-// 		}
-// 	}
-// }
 
 .todo-list--active {
 	display: none;
