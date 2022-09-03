@@ -21,6 +21,8 @@ const renderTodoList = () => {
             completedButtonELement.classList.add("todo-list__completed-btn");
             completedButtonELement.addEventListener("click", () => {
                 todo.completed = !todo.completed;
+                completedButtonELement.classList.toggle("todo-list__completed-btn--completed");
+                textSpanElement.classList.toggle("todo-list__text--completed");
             });
             todoListContainer.appendChild(completedButtonELement);
             const textSpanElement = document.createElement("span");
