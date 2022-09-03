@@ -4,6 +4,9 @@ const addTodoForm = document.querySelector(".todo-add__form");
 const addTodoInput = document.querySelector(".todo-add__input");
 //todo list variables
 const todoList = document.querySelector(".todo-list__containter");
+//filters todo variables
+const itemsLeftNumber = document.querySelector(".filters-todo__number");
+const filtersButtons = document.querySelectorAll(".filters-todo__button");
 const randomId = () => {
     return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
@@ -11,6 +14,7 @@ const randomId = () => {
 };
 //todos array
 let todos = [];
+let completedTodos = [];
 const renderTodoList = () => {
     todoList.innerHTML = "";
     if (todos.length) {
@@ -23,6 +27,10 @@ const renderTodoList = () => {
                 todo.completed = !todo.completed;
                 completedButtonELement.classList.toggle("todo-list__completed-btn--completed");
                 textSpanElement.classList.toggle("todo-list__text--completed");
+                // addToCompletedTodos();
+                // addNumberToItemsLeft();
+                console.log("todos", todos);
+                console.log("completedTodos", completedTodos);
             });
             todoListContainer.appendChild(completedButtonELement);
             const textSpanElement = document.createElement("span");
@@ -46,6 +54,25 @@ const addTodo = (todo) => {
         completed: false,
     });
 };
+// const addToCompletedTodos = () => {
+// 	todos.forEach((todo) => {
+// 		if (todo.completed === true) {
+// 			completedTodos.push(todo);
+// 			const newCompletedTodos = completedTodos.filter(
+// 				(completedTodo) => completedTodo.completed === true
+// 			);
+// 			completedTodos = newCompletedTodos;
+// 		}
+// 		console.log(completedTodos);
+// 	});
+// };
+// const addNumberToItemsLeft = () => {
+// 	if (completedTodos.length === 0) {
+// 		itemsLeftNumber.innerText = "0";
+// 	} else if (completedTodos.length > 0) {
+// 		itemsLeftNumber.innerText = `${completedTodos.length}`;
+// 	} else return;
+// };
 const deleteTodo = (event) => {
     const currentTarget = event.target;
     const currentId = currentTarget.getAttribute("data-set-id");
@@ -55,6 +82,13 @@ const deleteTodo = (event) => {
         renderTodoList();
     }
 };
+filtersButtons.forEach((filtersButton) => {
+    filtersButton.addEventListener("click", function () {
+        let current = document.getElementsByClassName("filters-todo__button--active");
+        current[0].className = current[0].className.replace(" filters-todo__button--active", "");
+        this.className += " filters-todo__button--active";
+    });
+});
 addTodoForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (addTodoInput.value !== "") {

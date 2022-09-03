@@ -11,6 +11,15 @@ const todoList = document.querySelector(
 	".todo-list__containter"
 ) as HTMLUListElement;
 
+//filters todo variables
+const itemsLeftNumber = document.querySelector(
+	".filters-todo__number"
+) as HTMLSpanElement;
+
+const filtersButtons = document.querySelectorAll<HTMLButtonElement>(
+	".filters-todo__button"
+);
+
 interface ArrayTodoList {
 	id: string;
 	todo: string;
@@ -24,6 +33,7 @@ const randomId = () => {
 
 //todos array
 let todos: ArrayTodoList[] = [];
+let completedTodos: ArrayTodoList[] = [];
 
 const renderTodoList = () => {
 	todoList.innerHTML = "";
@@ -40,6 +50,11 @@ const renderTodoList = () => {
 					"todo-list__completed-btn--completed"
 				);
 				textSpanElement.classList.toggle("todo-list__text--completed");
+
+				// addToCompletedTodos();
+				// addNumberToItemsLeft();
+				console.log("todos", todos);
+				console.log("completedTodos", completedTodos);
 			});
 			todoListContainer.appendChild(completedButtonELement);
 
@@ -66,6 +81,29 @@ const addTodo = (todo: string) => {
 	});
 };
 
+// const addToCompletedTodos = () => {
+// 	todos.forEach((todo) => {
+// 		if (todo.completed === true) {
+// 			completedTodos.push(todo);
+
+// 			const newCompletedTodos = completedTodos.filter(
+// 				(completedTodo) => completedTodo.completed === true
+// 			);
+// 			completedTodos = newCompletedTodos;
+// 		}
+
+// 		console.log(completedTodos);
+// 	});
+// };
+
+// const addNumberToItemsLeft = () => {
+// 	if (completedTodos.length === 0) {
+// 		itemsLeftNumber.innerText = "0";
+// 	} else if (completedTodos.length > 0) {
+// 		itemsLeftNumber.innerText = `${completedTodos.length}`;
+// 	} else return;
+// };
+
 const deleteTodo = (event: Event) => {
 	const currentTarget = event.target as HTMLButtonElement;
 	const currentId = currentTarget.getAttribute("data-set-id");
@@ -76,6 +114,19 @@ const deleteTodo = (event: Event) => {
 		renderTodoList();
 	}
 };
+
+filtersButtons.forEach((filtersButton) => {
+	filtersButton.addEventListener("click", function () {
+		let current = document.getElementsByClassName(
+			"filters-todo__button--active"
+		);
+		current[0].className = current[0].className.replace(
+			" filters-todo__button--active",
+			""
+		);
+		this.className += " filters-todo__button--active";
+	});
+});
 
 addTodoForm.addEventListener("submit", (event: SubmitEvent) => {
 	event.preventDefault();
