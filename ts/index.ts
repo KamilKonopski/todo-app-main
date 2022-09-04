@@ -117,10 +117,14 @@ const renderTodoList = () => {
 
 			const completedButtonELement = document.createElement("button");
 			completedButtonELement.classList.add("todo-list__completed-btn");
+			completedButtonELement.classList.add(
+				"todo-list__completed-btn--completed"
+			);
 			todoListContainer.appendChild(completedButtonELement);
 
 			const textSpanElement = document.createElement("span");
 			textSpanElement.classList.add("todo-list__text");
+			textSpanElement.classList.add("todo-list__text--completed");
 			textSpanElement.innerText = completedTodo.todo;
 			todoListContainer.appendChild(textSpanElement);
 
@@ -164,7 +168,15 @@ const deleteTodo = (event: Event) => {
 
 	if (currentTarget.classList[0] === "todo-list__delete-btn") {
 		const newTodos = todos.filter((todo) => todo.id !== currentId);
+		const newActiveTodos = activeTodos.filter(
+			(activeTodo) => activeTodo.id !== currentId
+		);
+		const newCompletedTodos = completedTodos.filter(
+			(completedTodo) => completedTodo.id !== currentId
+		);
 		todos = newTodos;
+		activeTodos = newActiveTodos;
+		completedTodos = newCompletedTodos;
 		renderTodoList();
 	}
 };
@@ -189,6 +201,7 @@ const clearCompletedTodos = () => {
 	todos = filteredTodos;
 
 	renderTodoList();
+	addNumberToItemsLeft();
 };
 
 addTodoForm.addEventListener("submit", (event: SubmitEvent) => {
@@ -216,3 +229,17 @@ todoList.addEventListener("click", (event) => {
 });
 
 renderTodoList();
+
+// const cos = () => {
+// 	const a = document.createElement("p");
+// 	a.innerText = "asd";
+// 	document.body.appendChild(a);
+// 	a.style.backgroundColor = "red";
+// 	return a;
+// };
+
+// cos().addEventListener("click", () => {
+// 	console.log("click");
+// });
+
+// DZIAŁA!!!
