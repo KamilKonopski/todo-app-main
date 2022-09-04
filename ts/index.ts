@@ -33,11 +33,20 @@ const clearCompletedButton = document.querySelector(
 	".filters-todo__clear-completed"
 ) as HTMLButtonElement;
 
-interface ArrayTodoList {
+//theme variable
+
+const themeButton = document.querySelector(
+	".header__button-theme"
+) as HTMLButtonElement;
+
+const darkTheme = document.getElementsByClassName("dark");
+const lightTheme = document.getElementsByClassName("light");
+
+type ArrayTodoList = {
 	id: string;
 	todo: string;
 	completed: boolean;
-}
+};
 const randomId = () => {
 	return Math.floor((1 + Math.random()) * 0x10000)
 		.toString(16)
@@ -211,6 +220,21 @@ const clearCompletedTodos = () => {
 	addNumberToItemsLeft();
 };
 
+const changeThemeMode = () => {
+	if (themeButton.classList.contains("dark")) {
+		for (let i = 0; (i = darkTheme.length); i++) {
+			darkTheme[0].className = darkTheme[0].className.replace("dark", "light");
+		}
+	} else if (themeButton.classList.contains("light")) {
+		for (let i = 0; (i = lightTheme.length); i++) {
+			lightTheme[0].className = lightTheme[0].className.replace(
+				"light",
+				"dark"
+			);
+		}
+	}
+};
+
 addTodoForm.addEventListener("submit", (event: SubmitEvent) => {
 	event.preventDefault();
 	if (addTodoInput.value !== "") {
@@ -234,6 +258,8 @@ todoList.addEventListener("click", (event) => {
 		addToActiveTodos();
 	}
 });
+
+themeButton.addEventListener("click", changeThemeMode);
 
 renderTodoList();
 
