@@ -10,15 +10,28 @@
 
 	&.light {
 		background-color: #fff;
+
+		& .todo-list__text {
+			color: $lightVeryDarkGrayishBlue;
+
+			&--completed {
+				color: $lightGrayishBlue;
+			}
+		}
 	}
 
 	&__item {
 		align-items: center;
 		border-bottom: 1px solid $darkDarkGrayishBlue;
+		cursor: pointer;
 		display: flex;
 		list-style: none;
 		padding: 15px;
 		width: 100%;
+
+		&:hover .todo-list__delete-btn {
+			display: block;
+		}
 	}
 
 	&__completed-btn {
@@ -56,6 +69,7 @@
 	&__delete-btn {
 		background: url("../images/icon-cross.svg") no-repeat center;
 		border: none;
+		display: none;
 		cursor: pointer;
 		height: 12px;
 		width: 12px;
@@ -79,10 +93,28 @@
 
 	&.dark {
 		background-color: $veryDarkDesaturatedBlue;
+
+		& .filters-todo__clear-completed {
+			color: $darkVeryDarkGrayishBlue;
+			transition: 0.2s linear;
+
+			&:hover {
+				color: $lightGrayishBlueHover;
+			}
+		}
 	}
 
 	&.light {
 		background-color: #fff;
+
+		& .filters-todo__clear-completed {
+			color: $darkGrayishBlue;
+			transition: 0.2s linear;
+
+			&:hover {
+				color: $lightVeryDarkGrayishBlue;
+			}
+		}
 	}
 
 	&__items-left {
@@ -95,7 +127,6 @@
 	&__clear-completed {
 		background-color: transparent;
 		border: none;
-		color: $darkVeryDarkGrayishBlue;
 		cursor: pointer;
 		font-size: 11px;
 		font-weight: 700;
@@ -114,10 +145,36 @@
 
 		&.dark {
 			background-color: $veryDarkDesaturatedBlue;
+
+			& .filters-todo__button {
+				color: $darkVeryDarkGrayishBlue;
+				transition: 0.2s linear;
+
+				&:hover {
+					color: $lightGrayishBlueHover;
+				}
+			}
+
+			& .filters-todo__button--active {
+				color: $brightBlue;
+			}
 		}
 
 		&.light {
 			background-color: #fff;
+
+			& .filters-todo__button {
+				color: $darkGrayishBlue;
+				transition: 0.2s linear;
+
+				&:hover {
+					color: $lightVeryDarkGrayishBlue;
+				}
+			}
+
+			& .filters-todo__button--active {
+				color: $brightBlue;
+			}
 		}
 
 		@media screen and (min-width: 1024px) {
@@ -132,14 +189,10 @@
 	&__button {
 		background-color: transparent;
 		border: none;
-		color: $darkVeryDarkGrayishBlue;
+		color: #fff;
 		cursor: pointer;
 		font-size: 14px;
 		font-weight: 700;
 		margin: 0 10px;
-	}
-
-	&__button--active {
-		color: $brightBlue;
 	}
 }
