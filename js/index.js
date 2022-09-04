@@ -19,6 +19,7 @@ const randomId = () => {
 //todos array
 let todos = [];
 let completedTodos = [];
+let activeTodos = [];
 const renderTodoList = () => {
     todoList.innerHTML = "";
     if (todos.length &&
@@ -43,6 +44,26 @@ const renderTodoList = () => {
             deleteButtonElement.setAttribute("data-set-id", todo.id);
             todoListContainer.appendChild(deleteButtonElement);
             todoList.appendChild(todoListContainer);
+            addToActiveTodos();
+        });
+    }
+    else if (activeTodos.length &&
+        filterButtonActive.classList.contains("filters-todo__button--active")) {
+        activeTodos.map((activeTodo) => {
+            const todoListContainer = document.createElement("li");
+            todoListContainer.classList.add("todo-list__item");
+            const completedButtonELement = document.createElement("button");
+            completedButtonELement.classList.add("todo-list__completed-btn");
+            todoListContainer.appendChild(completedButtonELement);
+            const textSpanElement = document.createElement("span");
+            textSpanElement.classList.add("todo-list__text");
+            textSpanElement.innerText = activeTodo.todo;
+            todoListContainer.appendChild(textSpanElement);
+            const deleteButtonElement = document.createElement("button");
+            deleteButtonElement.classList.add("todo-list__delete-btn");
+            deleteButtonElement.setAttribute("data-set-id", activeTodo.id);
+            todoListContainer.appendChild(deleteButtonElement);
+            todoList.appendChild(todoListContainer);
         });
     }
     else if (completedTodos.length &&
@@ -62,7 +83,6 @@ const renderTodoList = () => {
             deleteButtonElement.setAttribute("data-set-id", completedTodo.id);
             todoListContainer.appendChild(deleteButtonElement);
             todoList.appendChild(todoListContainer);
-            console.log("działa");
         });
     }
 };
@@ -72,6 +92,9 @@ const addTodo = (todo) => {
         todo: todo,
         completed: false,
     });
+};
+const addToActiveTodos = () => {
+    activeTodos = todos.filter((todo) => todo.completed === false);
 };
 const addToCompletedTodos = () => {
     completedTodos = todos.filter((todo) => todo.completed === true);
@@ -124,19 +147,8 @@ todoList.addEventListener("click", (event) => {
     if (currentTarget.classList[0] === "todo-list__completed-btn") {
         addToCompletedTodos();
         addNumberToItemsLeft();
-        console.log(todos);
-        console.log(completedTodos);
+        addToActiveTodos();
     }
 });
 renderTodoList();
-// const cos = () => {
-// 	const a = document.createElement("p");
-// 	a.innerText = "asd";
-// 	document.body.appendChild(a);
-// 	a.style.backgroundColor = "red";
-// 	return a;
-// };
-// cos().addEventListener("click", () => {
-// 	console.log("click");
-// });
-// DZIAŁA!!!
+addToActiveTodos();
