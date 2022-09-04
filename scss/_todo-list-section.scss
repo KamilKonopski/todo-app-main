@@ -103,7 +103,6 @@
 	}
 
 	&__buttons {
-		background-color: $veryDarkDesaturatedBlue;
 		border-radius: 5px;
 		display: flex;
 		justify-content: center;
@@ -112,6 +111,14 @@
 		position: absolute;
 		top: 110%;
 		width: 100%;
+
+		&.dark {
+			background-color: $veryDarkDesaturatedBlue;
+		}
+
+		&.light {
+			background-color: #fff;
+		}
 
 		@media screen and (min-width: 1024px) {
 			display: block;
