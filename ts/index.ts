@@ -20,6 +20,16 @@ const filtersButtons = document.querySelectorAll<HTMLButtonElement>(
 	".filters-todo__button"
 );
 
+const filterButtonAll = document.querySelector(
+	".filter-all"
+) as HTMLButtonElement;
+const filterButtonActive = document.querySelector(
+	".filter-active"
+) as HTMLButtonElement;
+const filterButtonCompleted = document.querySelector(
+	".filter-completed"
+) as HTMLButtonElement;
+
 const clearCompletedButton = document.querySelector(
 	".filters-todo__clear-completed"
 ) as HTMLButtonElement;
@@ -41,7 +51,10 @@ let completedTodos: ArrayTodoList[] = [];
 
 const renderTodoList = () => {
 	todoList.innerHTML = "";
-	if (todos.length) {
+	if (
+		todos.length &&
+		filterButtonAll.classList.contains("filters-todo__button--active")
+	) {
 		todos.map((todo) => {
 			const todoListContainer = document.createElement("li");
 			todoListContainer.classList.add("todo-list__item");
@@ -54,11 +67,6 @@ const renderTodoList = () => {
 					"todo-list__completed-btn--completed"
 				);
 				textSpanElement.classList.toggle("todo-list__text--completed");
-
-				addToCompletedTodos();
-				addNumberToItemsLeft();
-				console.log("todos", todos);
-				console.log("completedTodos", completedTodos);
 			});
 			todoListContainer.appendChild(completedButtonELement);
 
@@ -73,6 +81,31 @@ const renderTodoList = () => {
 			todoListContainer.appendChild(deleteButtonElement);
 
 			todoList.appendChild(todoListContainer);
+		});
+	} else if (
+		completedTodos.length &&
+		filterButtonCompleted.classList.contains("filters-todo__button--active")
+	) {
+		completedTodos.map((completedTodo) => {
+			const todoListContainer = document.createElement("li");
+			todoListContainer.classList.add("todo-list__item");
+
+			const completedButtonELement = document.createElement("button");
+			completedButtonELement.classList.add("todo-list__completed-btn");
+			todoListContainer.appendChild(completedButtonELement);
+
+			const textSpanElement = document.createElement("span");
+			textSpanElement.classList.add("todo-list__text");
+			textSpanElement.innerText = completedTodo.todo;
+			todoListContainer.appendChild(textSpanElement);
+
+			const deleteButtonElement = document.createElement("button");
+			deleteButtonElement.classList.add("todo-list__delete-btn");
+			deleteButtonElement.setAttribute("data-set-id", completedTodo.id);
+			todoListContainer.appendChild(deleteButtonElement);
+
+			todoList.appendChild(todoListContainer);
+			console.log("działa");
 		});
 	}
 };
@@ -118,6 +151,7 @@ filtersButtons.forEach((filtersButton) => {
 			""
 		);
 		this.className += " filters-todo__button--active";
+		renderTodoList();
 	});
 });
 
@@ -143,4 +177,29 @@ todoList.addEventListener("click", deleteTodo);
 
 clearCompletedButton.addEventListener("click", clearCompletedTodos);
 
+todoList.addEventListener("click", (event) => {
+	const currentTarget = event.target as HTMLButtonElement;
+
+	if (currentTarget.classList[0] === "todo-list__completed-btn") {
+		addToCompletedTodos();
+		addNumberToItemsLeft();
+		console.log(todos);
+		console.log(completedTodos);
+	}
+});
+
 renderTodoList();
+
+// const cos = () => {
+// 	const a = document.createElement("p");
+// 	a.innerText = "asd";
+// 	document.body.appendChild(a);
+// 	a.style.backgroundColor = "red";
+// 	return a;
+// };
+
+// cos().addEventListener("click", () => {
+// 	console.log("click");
+// });
+
+// DZIAŁA!!!
