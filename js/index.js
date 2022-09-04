@@ -94,6 +94,11 @@ const addTodo = (todo) => {
         todo: todo,
         completed: false,
     });
+    activeTodos.push({
+        id: randomId(),
+        todo: todo,
+        completed: false,
+    });
 };
 const addToActiveTodos = () => {
     activeTodos = todos.filter((todo) => todo.completed === false);
@@ -122,6 +127,7 @@ const deleteTodo = (event) => {
         activeTodos = newActiveTodos;
         completedTodos = newCompletedTodos;
         renderTodoList();
+        addNumberToItemsLeft();
     }
 };
 filtersButtons.forEach((filtersButton) => {

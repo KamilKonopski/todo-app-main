@@ -144,6 +144,12 @@ const addTodo = (todo: string) => {
 		todo: todo,
 		completed: false,
 	});
+
+	activeTodos.push({
+		id: randomId(),
+		todo: todo,
+		completed: false,
+	});
 };
 
 const addToActiveTodos = () => {
@@ -178,6 +184,7 @@ const deleteTodo = (event: Event) => {
 		activeTodos = newActiveTodos;
 		completedTodos = newCompletedTodos;
 		renderTodoList();
+		addNumberToItemsLeft();
 	}
 };
 
