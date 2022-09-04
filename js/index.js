@@ -151,4 +151,3 @@ todoList.addEventListener("click", (event) => {
     }
 });
 renderTodoList();
-addToActiveTodos();
