@@ -104,6 +104,14 @@ const addTodo = (todo) => {
         completed: false,
     });
 };
+const addTodoToList = (event) => {
+    event.preventDefault();
+    if (addTodoInput.value !== "") {
+        addTodo(addTodoInput.value);
+        addTodoInput.value = "";
+        renderTodoList();
+    }
+};
 const addToActiveTodos = () => {
     activeTodos = todos.filter((todo) => todo.completed === false);
 };
@@ -134,14 +142,14 @@ const deleteTodo = (event) => {
         addNumberToItemsLeft();
     }
 };
-filtersButtons.forEach((filtersButton) => {
-    filtersButton.addEventListener("click", function () {
-        let current = document.getElementsByClassName("filters-todo__button--active");
-        current[0].className = current[0].className.replace(" filters-todo__button--active", "");
-        this.className += " filters-todo__button--active";
-        renderTodoList();
-    });
-});
+const addToCompletedList = (event) => {
+    const currentTarget = event.target;
+    if (currentTarget.classList[0] === "todo-list__completed-btn") {
+        addToCompletedTodos();
+        addNumberToItemsLeft();
+        addToActiveTodos();
+    }
+};
 const clearCompletedTodos = () => {
     completedTodos.splice(0, completedTodos.length);
     const filteredTodos = todos.filter((todo) => todo.completed === false);
@@ -161,34 +169,17 @@ const changeThemeMode = () => {
         }
     }
 };
-addTodoForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (addTodoInput.value !== "") {
-        addTodo(addTodoInput.value);
-        addTodoInput.value = "";
-        renderTodoList();
-    }
-});
+addTodoForm.addEventListener("submit", addTodoToList);
 todoList.addEventListener("click", deleteTodo);
 clearCompletedButton.addEventListener("click", clearCompletedTodos);
-todoList.addEventListener("click", (event) => {
-    const currentTarget = event.target;
-    if (currentTarget.classList[0] === "todo-list__completed-btn") {
-        addToCompletedTodos();
-        addNumberToItemsLeft();
-        addToActiveTodos();
-    }
-});
+todoList.addEventListener("click", addToCompletedList);
 themeButton.addEventListener("click", changeThemeMode);
+filtersButtons.forEach((filtersButton) => {
+    filtersButton.addEventListener("click", function () {
+        let current = document.getElementsByClassName("filters-todo__button--active");
+        current[0].className = current[0].className.replace(" filters-todo__button--active", "");
+        this.className += " filters-todo__button--active";
+        renderTodoList();
+    });
+});
 renderTodoList();
-// const cos = () => {
-// 	const a = document.createElement("p");
-// 	a.innerText = "asd";
-// 	document.body.appendChild(a);
-// 	a.style.backgroundColor = "red";
-// 	return a;
-// };
-// cos().addEventListener("click", () => {
-// 	console.log("click");
-// });
-// DZIAŁA!!!
